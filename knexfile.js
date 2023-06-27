@@ -1,40 +1,31 @@
-// Update with your config settings.
+const development = require('./config/databaseConfig');
 
 /**
  * @type { Object.<string, import("knex").Knex.Config> }
  */
 module.exports = {
 
-  development: {
-    client: 'mysql',
-    connection: {
-      host : '127.0.0.1',
-      port : 3306,
-      user : 'root',
-      password : 'Ku@151511',
-      database : ''
-    }
-  },
+  development,
 
   staging: {
     client: 'mysql',
     connection: {
-      host : '127.0.0.1',
-      port : 3306,
-      user : 'root',
-      password : 'Ku@151511',
-      database : ''
+      host: '127.0.0.1',
+      port: 3306,
+      user: 'root',
+      password: 'Ku@151511',
+      database: ''
     }
   },
 
   production: {
     client: 'mysql',
     connection: {
-      host : '127.0.0.1',
-      port : 3306,
-      user : 'root',
-      password : 'Ku@151511',
-      database : ''
+      host: '127.0.0.1',
+      port: 3306,
+      user: 'root',
+      password: 'Ku@151511',
+      database: ''
     }
   }
 };
