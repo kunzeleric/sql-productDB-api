@@ -14,7 +14,7 @@ module.exports = {
       port: 3306,
       user: 'root',
       password: 'Ku@151511',
-      database: ''
+      database: 'backend_project_products'
     }
   },
 
@@ -25,7 +25,7 @@ module.exports = {
       port: 3306,
       user: 'root',
       password: 'Ku@151511',
-      database: ''
+      database: 'backend_project_products'
     }
   }
 };
