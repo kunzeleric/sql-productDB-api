@@ -5,7 +5,7 @@ Challenge proposed by DNC to create an API that allows users to store, edit, rem
 
 ## Database Schema
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![schema database](https://github.com/kunzeleric/sql-productDB-api/assets/114115220/1410e663-7e43-438d-95ed-406106e94506)
 
 
 ## Technologies & Dependencies
