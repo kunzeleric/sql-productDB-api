@@ -1,4 +1,5 @@
 const express = require('express');
+const routes = require('./src/routes');
 require('dotenv').config();
 
 const app = express();
@@ -9,6 +10,8 @@ app.use(express.json());
 app.get('/health', (req, res) => {
     res.status(200).json({ msg: 'Servidor online!'})
 })
+
+routes(app);
 
 app.listen(port, () => {
     console.log('Listening on port ' + port);

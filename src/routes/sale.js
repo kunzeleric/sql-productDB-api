@@ -2,6 +2,7 @@ const Sale = require('../models/sale');
 const express = require('express');
 const router = express.Router();
 
+// get all sales
 router.get('/sales', async (req, res) => {
     const sales = await Sale.getSales();
     
@@ -12,17 +13,7 @@ router.get('/sales', async (req, res) => {
     }
 })
 
-router.get('/sales/:id', async (req, res) => {
-    const id = req.params.id;
-    const sale = await Sale.get(id);
-
-    if(sale) {
-        res.status(200).json({ sale });
-    } else {
-        res.status(404).json({ msg: 'Sale not found' });
-    }
-})
-
+// create a sale
 router.post('/sales', async (req, res) => {
     const sale = await Sale.createSale(req.body);
 
@@ -33,6 +24,7 @@ router.post('/sales', async (req, res) => {
     }
 })
 
+// update a specific sale
 router.put('/sales/:id', async (req, res) => {
     const id = req.params.id;
     const sale = await Sale.updateSale(id, req.body);
@@ -44,6 +36,7 @@ router.put('/sales/:id', async (req, res) => {
     }
 })
 
+// delete a specific sale
 router.delete('/sales/:id', async (req, res) => {
     const id = req.params.id;
     const sale = await Sale.deleteSale(id);
@@ -55,6 +48,7 @@ router.delete('/sales/:id', async (req, res) => {
     }
 })
 
+// get sales from a client
 router.get('/sales/client/:id', async (req, res) => {
     const id = req.params.id;
     const sale = await Sale.getSaleByClientID(id);
@@ -63,6 +57,29 @@ router.get('/sales/client/:id', async (req, res) => {
         res.status(200).json({ sale });
     } else {
         res.status(404).json({ msg: 'Sale not found with this Client ID' });
+    }
+})
+
+// get sales summary
+router.get('/sales/summary', async (req, res) => {
+    const sales = await Sale.getSalesSummary();
+
+    if(sales) {
+        res.status(200).json({ sales });
+    } else {
+        res.status(404).json({ msg: 'No sales registered' });
+    }
+})
+
+// get a specific sale
+router.get('/sales/:id', async (req, res) => {
+    const id = req.params.id;
+    const sale = await Sale.getSale(id);
+
+    if(sale) {
+        res.status(200).json({ sale });
+    } else {
+        res.status(404).json({ msg: 'Sale not found' });
     }
 })
 

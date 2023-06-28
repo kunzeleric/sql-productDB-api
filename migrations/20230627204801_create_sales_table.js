@@ -5,9 +5,8 @@
 exports.up = function(knex) {
   return knex.schema.createTable('sales', (table) => {
     table.bigIncrements('id').primary();
-    table.date('date');
+    table.dateTime('date').defaultTo(knex.fn.now());
     table.bigInteger('client_id').unsigned();
-    table.integer('income_value');
 
     table.foreign('client_id').references('clients.id');
   })

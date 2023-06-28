@@ -2,6 +2,7 @@ const Product = require('../models/product');
 const express = require('express');
 const router = express.Router();
 
+// get all products
 router.get('/products', async (req, res) => {
     const products = await Product.getProducts();
     
@@ -12,6 +13,7 @@ router.get('/products', async (req, res) => {
     }
 })
 
+// get a specific product
 router.get('/products/:id', async (req, res) => {
     const id = req.params.id;
     const product = await Product.getProduct(id);
@@ -23,6 +25,7 @@ router.get('/products/:id', async (req, res) => {
     }
 })
 
+// post a product
 router.post('/products', async (req, res) => {
     const product = await Product.createProduct(req.body);
 
@@ -33,6 +36,7 @@ router.post('/products', async (req, res) => {
     }
 })
 
+// update a specific product
 router.put('/products/:id', async (req, res) => {
     const id = req.params.id;
     const product = await Product.updateProduct(id, req.body);
@@ -44,6 +48,7 @@ router.put('/products/:id', async (req, res) => {
     }
 })
 
+// delete a specific product
 router.delete('/products/:id', async (req, res) => {
     const id = req.params.id;
     const product = await Product.deleteProduct(id);

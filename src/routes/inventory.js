@@ -2,6 +2,7 @@ const Inventory = require('../models/inventory');
 const express = require('express');
 const router = express.Router();
 
+// get all inventory
 router.get('/inventory', async (req, res) => {
     const inventory = await Inventory.getAllInventory();
     
@@ -12,6 +13,7 @@ router.get('/inventory', async (req, res) => {
     }
 })
 
+// get a specific inventory
 router.get('/inventory/:id', async (req, res) => {
     const id = req.params.id;
     const inventory = await Inventory.getInventory(id);
@@ -23,6 +25,7 @@ router.get('/inventory/:id', async (req, res) => {
     }
 })
 
+// create a new inventory
 router.post('/inventory', async (req, res) => {
     const inventory = await Inventory.createInventory(req.body);
 
@@ -33,6 +36,7 @@ router.post('/inventory', async (req, res) => {
     }
 })
 
+// update a specific inventory
 router.put('/inventory/:id', async (req, res) => {
     const id = req.params.id;
     const inventory = await Inventory.updateInventory(id, req.body);
@@ -44,6 +48,7 @@ router.put('/inventory/:id', async (req, res) => {
     }
 })
 
+// delete a specific inventory
 router.delete('/inventory/:id', async (req, res) => {
     const id = req.params.id;
     const inventory = await Inventory.deleteInventory(id);
@@ -55,6 +60,7 @@ router.delete('/inventory/:id', async (req, res) => {
     }
 })
 
+// get inventory by product id
 router.get('/inventory/product/:id', async (req, res) => {
     const id = req.params.id;
     const inventory = await Inventory.getInventoryByProductID(id);

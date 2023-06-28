@@ -2,6 +2,7 @@ const Client = require('../models/client');
 const express = require('express');
 const router = express.Router();
 
+// get all clients
 router.get('/clients', async (req, res) => {
     const clients = await Client.getClients();
     
@@ -12,6 +13,7 @@ router.get('/clients', async (req, res) => {
     }
 })
 
+// get a specific client
 router.get('/clients/:id', async (req, res) => {
     const id = req.params.id;
     const client = await Client.getClient(id);
@@ -23,6 +25,7 @@ router.get('/clients/:id', async (req, res) => {
     }
 })
 
+// create a client
 router.post('/clients', async (req, res) => {
     const client = await Client.createClient(req.body);
 
@@ -33,6 +36,7 @@ router.post('/clients', async (req, res) => {
     }
 })
 
+// update a specific client
 router.put('/clients/:id', async (req, res) => {
     const id = req.params.id;
     const client = await Client.updateClient(id, req.body);
@@ -44,6 +48,7 @@ router.put('/clients/:id', async (req, res) => {
     }
 })
 
+// delete a specific client
 router.delete('/clients/:id', async (req, res) => {
     const id = req.params.id;
     const client = await Client.deleteClient(id);

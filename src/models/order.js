@@ -44,6 +44,35 @@ class Order {
             .where('product_id', productId);
     }
 
+    static getOneOrderSummary = async (id) => {
+        const order = await knex('orders')
+            .select(
+                'orders.id',
+                'orders.volume_sold',
+                'products.name',
+                knex.raw('products.value * orders.volume_sold AS total_value')
+            )
+            .leftJoin('sales', 'orders.sales_id', 'sales.id')
+            .leftJoin('products', 'orders.product_id', 'products.id')
+            .where('orders.id', id)
+
+        return order;
+    }
+
+    static getAllOrdersSummary = async () => {
+        const orders = await knex('orders')
+            .select(
+                'orders.id',
+                'orders.volume_sold',
+                knex.raw('products.value * orders.volume_sold AS total_value')
+            )
+            .leftJoin('sales', 'orders.sales_id', 'sales.id')
+            .leftJoin('products', 'orders.product_id', 'products.id')
+            .groupBy('orders.id');
+
+        return orders;
+    }
+
 }
 
 module.exports = Order;
