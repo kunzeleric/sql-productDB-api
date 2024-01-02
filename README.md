@@ -14,6 +14,17 @@ Challenge proposed by DNC to create an API that allows users to store, edit, rem
 - Express
 - MySQL
 - Knex
+
+## Setup
+
+After cloning or downloading the project, use the commands below in the terminal.
+
+```bash
+  npm install my-project
+  cd my-project
+  npm run dev
+```
+
 ## API Documentation
 
 ## CLIENTS ROUTES
@@ -346,16 +357,6 @@ Challenge proposed by DNC to create an API that allows users to store, edit, rem
 | Parameter   | Type       | Description                                   |
 | :---------- | :--------- | :------------------------------------------ |
 | `id`      | `number` | **Mandatory**. The ID Of the product you are searching. |
-
-## Setup
-
-After cloning or downloading the project, use the commands below in the terminal.
-
-```bash
-  npm install my-project
-  cd my-project
-  npm run dev
-```
     
 ## Author
 
